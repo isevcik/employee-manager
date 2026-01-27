@@ -1,6 +1,8 @@
 using AutoMapper;
+
 using EmployeeManager.Data;
 using EmployeeManager.DTOs;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,5 +26,13 @@ public class EmployeesController : ControllerBase
     {
         var employees = await _context.Employees.ToListAsync();
         return _mapper.Map<List<EmployeeGetDto>>(employees);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<EmployeeGetDto>> GetById(int id)
+    {
+        var employee = await _context.Employees.FindAsync(id);
+        if (employee == null) return NotFound();
+        return _mapper.Map<EmployeeGetDto>(employee);
     }
 }
