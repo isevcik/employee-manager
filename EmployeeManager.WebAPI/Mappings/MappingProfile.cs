@@ -10,5 +10,6 @@ public class MappingProfile : Profile
     {
         CreateMap<Country, CountryDto>();
         CreateMap<JobCategory, JobCategoryDto>();
+        CreateMap<Employee, EmployeeGetDto>();
     }
 }
