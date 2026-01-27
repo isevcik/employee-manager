@@ -9,6 +9,7 @@
         <th>Email</th>
         <th>Birth Date</th>
         <th>Joined Date</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,9 @@
         <td>{{ data.email }}</td>
         <td>{{ data.birthDate }}</td>
         <td>{{ data.joinedDate }}</td>
+        <td>
+          <a [routerLink]="[data.id, 'edit']">Edit</a>
+        </td>
       </tr>
       }
     </tbody>
