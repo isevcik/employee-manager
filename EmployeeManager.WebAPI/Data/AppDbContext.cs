@@ -1,3 +1,4 @@
+using EmployeeManager.Data.Seed;
 using EmployeeManager.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -42,6 +43,9 @@ public class AppDbContext : DbContext
             .HasOne(ejc => ejc.JobCategory)
             .WithMany(jc => jc.EmployeeJobCategories)
             .HasForeignKey(ejc => ejc.JobCategoryId);
+
+        modelBuilder.SeedCountries();
+        modelBuilder.SeedJobCategories();
 
         base.OnModelCreating(modelBuilder);
     }
