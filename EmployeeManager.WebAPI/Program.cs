@@ -13,8 +13,32 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<EmployeeSeederService>();
 
 var app = builder.Build();
+
+// Optional seeding of employees from JSON file
+if (args.Contains("--seed-employees"))
+{
+    using var scope = app.Services.CreateScope();
+    var seeder = scope.ServiceProvider.GetRequiredService<EmployeeSeederService>();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+    var seedFilePath = Path.Combine(AppContext.BaseDirectory, "Data", "OptionalSeed", "employees.json");
+
+    logger.LogInformation("Seeding employees from: {SeedFilePath}", seedFilePath);
+
+    try
+    {
+        await seeder.SeedEmployeesFromJsonAsync(seedFilePath);
+        logger.LogInformation("Employee seeding completed successfully");
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "Failed to seed employees");
+        return;
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

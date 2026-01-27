@@ -1,0 +1,639 @@
+[
+  {
+    "firstName": "John",
+    "middleName": "Michael",
+    "lastName": "Smith",
+    "birthDate": "1985-03-15",
+    "gender": "Male",
+    "email": "john.smith@company.com",
+    "phoneNumber": "+1-555-0101",
+    "joinedDate": "2020-01-15",
+    "exitedDate": null,
+    "superiorId": null,
+    "address": {
+      "street": "123 Main Street",
+      "zipCode": "10001",
+      "city": "New York",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 85000.00,
+        "from": "2020-01-15",
+        "to": "2021-12-31"
+      },
+      {
+        "amount": 95000.00,
+        "from": "2022-01-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "firstName": "Sarah",
+    "middleName": null,
+    "lastName": "Johnson",
+    "birthDate": "1990-07-22",
+    "gender": "Female",
+    "email": "sarah.johnson@company.com",
+    "phoneNumber": "+1-555-0102",
+    "joinedDate": "2021-03-10",
+    "exitedDate": null,
+    "superiorId": 1,
+    "address": {
+      "street": "456 Oak Avenue",
+      "zipCode": "90210",
+      "city": "Los Angeles",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 72000.00,
+        "from": "2021-03-10",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      3
+    ]
+  },
+  {
+    "firstName": "Michael",
+    "middleName": "James",
+    "lastName": "Williams",
+    "birthDate": "1988-11-03",
+    "gender": "Male",
+    "email": "michael.williams@company.com",
+    "phoneNumber": "+1-555-0103",
+    "joinedDate": "2019-06-01",
+    "exitedDate": null,
+    "superiorId": 1,
+    "address": {
+      "street": "789 Pine Road",
+      "zipCode": "60601",
+      "city": "Chicago",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 78000.00,
+        "from": "2019-06-01",
+        "to": "2021-05-31"
+      },
+      {
+        "amount": 88000.00,
+        "from": "2021-06-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1,
+      4
+    ]
+  },
+  {
+    "firstName": "Emily",
+    "middleName": "Rose",
+    "lastName": "Brown",
+    "birthDate": "1992-02-14",
+    "gender": "Female",
+    "email": "emily.brown@company.com",
+    "phoneNumber": "+1-555-0104",
+    "joinedDate": "2022-01-20",
+    "exitedDate": null,
+    "superiorId": 2,
+    "address": {
+      "street": "321 Elm Street",
+      "zipCode": "02101",
+      "city": "Boston",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 68000.00,
+        "from": "2022-01-20",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      2
+    ]
+  },
+  {
+    "firstName": "David",
+    "middleName": null,
+    "lastName": "Miller",
+    "birthDate": "1987-09-30",
+    "gender": "Male",
+    "email": "david.miller@company.com",
+    "phoneNumber": "+1-555-0105",
+    "joinedDate": "2018-11-05",
+    "exitedDate": null,
+    "superiorId": 1,
+    "address": {
+      "street": "654 Maple Drive",
+      "zipCode": "98101",
+      "city": "Seattle",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 92000.00,
+        "from": "2018-11-05",
+        "to": "2021-10-31"
+      },
+      {
+        "amount": 105000.00,
+        "from": "2021-11-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1,
+      3
+    ]
+  },
+  {
+    "firstName": "Jessica",
+    "middleName": "Anne",
+    "lastName": "Davis",
+    "birthDate": "1991-05-18",
+    "gender": "Female",
+    "email": "jessica.davis@company.com",
+    "phoneNumber": "+1-555-0106",
+    "joinedDate": "2020-08-12",
+    "exitedDate": null,
+    "superiorId": 3,
+    "address": {
+      "street": "987 Cedar Lane",
+      "zipCode": "33101",
+      "city": "Miami",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 71000.00,
+        "from": "2020-08-12",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      4
+    ]
+  },
+  {
+    "firstName": "Christopher",
+    "middleName": "Lee",
+    "lastName": "Garcia",
+    "birthDate": "1986-12-08",
+    "gender": "Male",
+    "email": "christopher.garcia@company.com",
+    "phoneNumber": "+1-555-0107",
+    "joinedDate": "2017-04-03",
+    "exitedDate": null,
+    "superiorId": null,
+    "address": {
+      "street": "147 Birch Street",
+      "zipCode": "75201",
+      "city": "Dallas",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 98000.00,
+        "from": "2017-04-03",
+        "to": "2020-03-31"
+      },
+      {
+        "amount": 115000.00,
+        "from": "2020-04-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "firstName": "Amanda",
+    "middleName": null,
+    "lastName": "Rodriguez",
+    "birthDate": "1993-08-25",
+    "gender": "Female",
+    "email": "amanda.rodriguez@company.com",
+    "phoneNumber": "+1-555-0108",
+    "joinedDate": "2021-09-15",
+    "exitedDate": null,
+    "superiorId": 7,
+    "address": {
+      "street": "258 Willow Way",
+      "zipCode": "94101",
+      "city": "San Francisco",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 76000.00,
+        "from": "2021-09-15",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      2
+    ]
+  },
+  {
+    "firstName": "Daniel",
+    "middleName": "Patrick",
+    "lastName": "Martinez",
+    "birthDate": "1989-04-12",
+    "gender": "Male",
+    "email": "daniel.martinez@company.com",
+    "phoneNumber": "+1-555-0109",
+    "joinedDate": "2019-02-20",
+    "exitedDate": null,
+    "superiorId": 7,
+    "address": {
+      "street": "369 Spruce Circle",
+      "zipCode": "30301",
+      "city": "Atlanta",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 82000.00,
+        "from": "2019-02-20",
+        "to": "2022-02-19"
+      },
+      {
+        "amount": 91000.00,
+        "from": "2022-02-20",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      3,
+      4
+    ]
+  },
+  {
+    "firstName": "Michelle",
+    "middleName": "Lynn",
+    "lastName": "Hernandez",
+    "birthDate": "1994-10-07",
+    "gender": "Female",
+    "email": "michelle.hernandez@company.com",
+    "phoneNumber": "+1-555-0110",
+    "joinedDate": "2022-05-01",
+    "exitedDate": null,
+    "superiorId": 5,
+    "address": {
+      "street": "741 Poplar Place",
+      "zipCode": "80201",
+      "city": "Denver",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 65000.00,
+        "from": "2022-05-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1
+    ]
+  },
+  {
+    "firstName": "Robert",
+    "middleName": "Thomas",
+    "lastName": "Lopez",
+    "birthDate": "1984-06-19",
+    "gender": "Male",
+    "email": "robert.lopez@company.com",
+    "phoneNumber": "+1-555-0111",
+    "joinedDate": "2016-07-11",
+    "exitedDate": "2023-12-31",
+    "superiorId": null,
+    "address": {
+      "street": "852 Ash Boulevard",
+      "zipCode": "85001",
+      "city": "Phoenix",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 110000.00,
+        "from": "2016-07-11",
+        "to": "2020-06-30"
+      },
+      {
+        "amount": 125000.00,
+        "from": "2020-07-01",
+        "to": "2023-12-31"
+      }
+    ],
+    "jobCategoryIds": [
+      1,
+      2
+    ]
+  },
+  {
+    "firstName": "Jennifer",
+    "middleName": "Marie",
+    "lastName": "Gonzalez",
+    "birthDate": "1995-01-28",
+    "gender": "Female",
+    "email": "jennifer.gonzalez@company.com",
+    "phoneNumber": "+1-555-0112",
+    "joinedDate": "2023-02-14",
+    "exitedDate": null,
+    "superiorId": 7,
+    "address": {
+      "street": "963 Hickory Hill",
+      "zipCode": "19101",
+      "city": "Philadelphia",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 69000.00,
+        "from": "2023-02-14",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      4
+    ]
+  },
+  {
+    "firstName": "Matthew",
+    "middleName": null,
+    "lastName": "Wilson",
+    "birthDate": "1990-09-05",
+    "gender": "Male",
+    "email": "matthew.wilson@company.com",
+    "phoneNumber": "+1-555-0113",
+    "joinedDate": "2020-10-08",
+    "exitedDate": null,
+    "superiorId": 1,
+    "address": {
+      "street": "159 Sycamore Street",
+      "zipCode": "78201",
+      "city": "San Antonio",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 79000.00,
+        "from": "2020-10-08",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      2,
+      3
+    ]
+  },
+  {
+    "firstName": "Lisa",
+    "middleName": "Ann",
+    "lastName": "Anderson",
+    "birthDate": "1987-03-21",
+    "gender": "Female",
+    "email": "lisa.anderson@company.com",
+    "phoneNumber": "+1-555-0114",
+    "joinedDate": "2018-05-17",
+    "exitedDate": null,
+    "superiorId": 7,
+    "address": {
+      "street": "357 Magnolia Drive",
+      "zipCode": "92101",
+      "city": "San Diego",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 87000.00,
+        "from": "2018-05-17",
+        "to": "2021-04-30"
+      },
+      {
+        "amount": 98000.00,
+        "from": "2021-05-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1,
+      3
+    ]
+  },
+  {
+    "firstName": "Kevin",
+    "middleName": "Charles",
+    "lastName": "Thomas",
+    "birthDate": "1992-11-16",
+    "gender": "Male",
+    "email": "kevin.thomas@company.com",
+    "phoneNumber": "+1-555-0115",
+    "joinedDate": "2021-06-22",
+    "exitedDate": null,
+    "superiorId": 3,
+    "address": {
+      "street": "468 Dogwood Lane",
+      "zipCode": "73101",
+      "city": "Oklahoma City",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 73000.00,
+        "from": "2021-06-22",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      4
+    ]
+  },
+  {
+    "firstName": "Laura",
+    "middleName": null,
+    "lastName": "Taylor",
+    "birthDate": "1996-04-09",
+    "gender": "Female",
+    "email": "laura.taylor@company.com",
+    "phoneNumber": "+1-555-0116",
+    "joinedDate": "2023-08-01",
+    "exitedDate": null,
+    "superiorId": 5,
+    "address": {
+      "street": "579 Redwood Road",
+      "zipCode": "89101",
+      "city": "Las Vegas",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 62000.00,
+        "from": "2023-08-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1
+    ]
+  },
+  {
+    "firstName": "Jason",
+    "middleName": "William",
+    "lastName": "Moore",
+    "birthDate": "1988-07-13",
+    "gender": "Male",
+    "email": "jason.moore@company.com",
+    "phoneNumber": "+1-555-0117",
+    "joinedDate": "2019-09-25",
+    "exitedDate": null,
+    "superiorId": 7,
+    "address": {
+      "street": "680 Chestnut Court",
+      "zipCode": "97201",
+      "city": "Portland",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 84000.00,
+        "from": "2019-09-25",
+        "to": "2022-09-24"
+      },
+      {
+        "amount": 93000.00,
+        "from": "2022-09-25",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      2,
+      4
+    ]
+  },
+  {
+    "firstName": "Rachel",
+    "middleName": "Elizabeth",
+    "lastName": "Jackson",
+    "birthDate": "1991-12-02",
+    "gender": "Female",
+    "email": "rachel.jackson@company.com",
+    "phoneNumber": "+1-555-0118",
+    "joinedDate": "2020-11-18",
+    "exitedDate": null,
+    "superiorId": 1,
+    "address": {
+      "street": "791 Juniper Avenue",
+      "zipCode": "37201",
+      "city": "Nashville",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 77000.00,
+        "from": "2020-11-18",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      3
+    ]
+  },
+  {
+    "firstName": "Andrew",
+    "middleName": "Scott",
+    "lastName": "White",
+    "birthDate": "1985-05-26",
+    "gender": "Male",
+    "email": "andrew.white@company.com",
+    "phoneNumber": "+1-555-0119",
+    "joinedDate": "2017-12-04",
+    "exitedDate": null,
+    "superiorId": null,
+    "address": {
+      "street": "802 Cottonwood Trail",
+      "zipCode": "53201",
+      "city": "Milwaukee",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 96000.00,
+        "from": "2017-12-04",
+        "to": "2020-11-30"
+      },
+      {
+        "amount": 110000.00,
+        "from": "2020-12-01",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "firstName": "Nicole",
+    "middleName": "Grace",
+    "lastName": "Harris",
+    "birthDate": "1993-02-17",
+    "gender": "Female",
+    "email": "nicole.harris@company.com",
+    "phoneNumber": "+1-555-0120",
+    "joinedDate": "2022-03-29",
+    "exitedDate": null,
+    "superiorId": 19,
+    "address": {
+      "street": "913 Beech Street",
+      "zipCode": "28201",
+      "city": "Charlotte",
+      "countryId": 1
+    },
+    "countryId": 1,
+    "salaries": [
+      {
+        "amount": 70000.00,
+        "from": "2022-03-29",
+        "to": null
+      }
+    ],
+    "jobCategoryIds": [
+      4
+    ]
+  }
+]
