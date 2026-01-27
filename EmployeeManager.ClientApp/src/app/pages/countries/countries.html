@@ -1,3 +1,19 @@
 <div class="countries-container">
   <h1>Countries</h1>
+  <nz-table #basicTable [nzData]="(countries$ | async) ?? []">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (data of basicTable.data; track data) {
+      <tr>
+        <td>{{ data.id }}</td>
+        <td>{{ data.name }}</td>
+      </tr>
+      }
+    </tbody>
+  </nz-table>
 </div>
