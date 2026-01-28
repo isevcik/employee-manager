@@ -5,12 +5,16 @@ import { routes } from './app.routes';
 import { en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { BASE_PATH } from './api/variables';
+import { environment } from '../environments/environment';
 
 registerLocaleData(en);
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes, withComponentInputBinding()), provideNzI18n(en_US)
+    provideRouter(routes, withComponentInputBinding()),
+    provideNzI18n(en_US),
+    { provide: BASE_PATH, useValue: environment.apiUrl }
   ]
 };
