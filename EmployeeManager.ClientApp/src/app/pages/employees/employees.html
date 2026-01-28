@@ -22,6 +22,8 @@
         <td>{{ data.birthDate }}</td>
         <td>{{ data.joinedDate }}</td>
         <td>
+          <a [routerLink]="[data.id, 'detail']">Detail</a>
+          <nz-divider nzType="vertical"></nz-divider>
           <a [routerLink]="[data.id, 'edit']">Edit</a>
         </td>
       </tr>

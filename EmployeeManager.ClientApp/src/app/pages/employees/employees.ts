@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from "@angular/router";
 import { tap, finalize, delay } from 'rxjs/operators';
+import { NzDividerComponent } from 'ng-zorro-antd/divider';
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.html',
   styleUrl: './employees.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, NzTableModule, RouterLink],
+  imports: [AsyncPipe, NzTableModule, RouterLink, NzDividerComponent],
 })
 export class EmployeesComponent {
   private employeesService = inject(EmployeesService);
