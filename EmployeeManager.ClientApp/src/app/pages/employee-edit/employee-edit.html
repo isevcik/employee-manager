@@ -2,6 +2,8 @@
   <h1>Employee Edit</h1>
 
   <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+    <nz-divider nzText="Basic Information" nzOrientation="left"></nz-divider>
+
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="firstName">First Name</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input first name!">
@@ -47,9 +49,83 @@
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="gender">Gender</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input gender!">
-        <input nz-input formControlName="gender" id="gender" />
+        <nz-radio-group formControlName="gender" nzButtonStyle="solid">
+          <label nz-radio-button nzValue="Male">Male</label>
+          <label nz-radio-button nzValue="Female">Female</label>
+          <label nz-radio-button nzValue="Other">Other</label>
+        </nz-radio-group>
       </nz-form-control>
     </nz-form-item>
+
+    <nz-divider nzText="Job Details" nzOrientation="left"></nz-divider>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="jobCategories">Job Categories</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select formControlName="jobCategories" id="jobCategories" nzMode="multiple"
+          nzPlaceHolder="Select job categories" nzShowSearch>
+          @for (category of (jobCategories$ | async); track category.id) {
+          <nz-option [nzLabel]="category.title || ''" [nzValue]="category.id"></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="salary">Salary</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="salary" id="salary" type="number" placeholder="Enter salary amount" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="superiorId">Superior</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select formControlName="superiorId" id="superiorId" nzPlaceHolder="Select a superior" nzShowSearch
+          nzAllowClear>
+          @for (employee of (employees$ | async); track employee.id) {
+          <nz-option [nzLabel]="(employee.firstName || '') + ' ' + (employee.lastName || '')"
+            [nzValue]="employee.id"></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-divider nzText="Address" nzOrientation="left"></nz-divider>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="street">Street</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="street" id="street" placeholder="Enter street address" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="zipCode">Zip Code</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="zipCode" id="zipCode" placeholder="Enter zip code" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="city">City</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="city" id="city" placeholder="Enter city" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="countryId">Country</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select formControlName="countryId" id="countryId" nzPlaceHolder="Select a country" nzShowSearch>
+          @for (country of (countries$ | async); track country.id) {
+          <nz-option [nzLabel]="country.name || ''" [nzValue]="country.id"></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-divider nzText="Employment Dates" nzOrientation="left"></nz-divider>
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="joinedDate">Joined Date</nz-form-label>
