@@ -16,10 +16,13 @@ builder.Services.AddScoped<EmployeeSeederService>();
 
 var app = builder.Build();
 
-// Optional seeding of employees from JSON file
-if (args.Contains("--seed-employees"))
+using (var scope = app.Services.CreateScope())
 {
-    using var scope = app.Services.CreateScope();
+    // Run migrations on startup
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
+
+    // Seed employees from JSON file
     var seeder = scope.ServiceProvider.GetRequiredService<EmployeeSeederService>();
     var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
 
