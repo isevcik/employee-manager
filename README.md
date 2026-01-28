@@ -30,7 +30,7 @@ A full-stack employee management system built with .NET 10 Web API and Angular 2
 
 3. Run the API:
    ```bash
-   dotnet run
+   dotnet run --launch-profile http
    ```
 
 The API will start on `http://localhost:5000`
