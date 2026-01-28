@@ -75,7 +75,37 @@ export class EmployeeEditComponent {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('Form submitted:', this.validateForm.value);
+      const formValue = this.validateForm.value;
+      const employeeUpdateDto = {
+        id: Number(this.employeeId()),
+        firstName: formValue.firstName || '',
+        middleName: formValue.middleName || null,
+        lastName: formValue.lastName || '',
+        birthDate: formValue.birthDate?.toISOString() || '',
+        gender: formValue.gender || '',
+        address: {
+          street: formValue.street || '',
+          zipCode: formValue.zipCode || '',
+          city: formValue.city || '',
+          countryId: formValue.countryId || undefined,
+        },
+        email: formValue.email || '',
+        phoneNumber: formValue.phoneNumber || null,
+        joinedDate: formValue.joinedDate?.toISOString() || '',
+        exitedDate: formValue.exitedDate?.toISOString() || null,
+        superiorId: formValue.superiorId || null,
+        salary: formValue.salary || 0,
+        jobCategories: formValue.jobCategories?.map(id => ({ id, title: '' })) || [],
+      };
+
+      this.employeesService.apiEmployeesIdPut(Number(this.employeeId()), employeeUpdateDto).subscribe({
+        next: () => {
+          console.log('Employee updated successfully');
+        },
+        error: (error) => {
+          console.error('Error updating employee:', error);
+        }
+      });
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
