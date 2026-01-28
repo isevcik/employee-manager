@@ -3,6 +3,7 @@ export * from './addressDtoId';
 export * from './countryDto';
 export * from './employeeGetDto';
 export * from './employeeGetDtoSuperiorId';
+export * from './employeeUpdateDto';
+export * from './employeeUpdateDtoSalary';
 export * from './jobCategoryDto';
 export * from './salaryDto';
-export * from './salaryDtoAmount';
