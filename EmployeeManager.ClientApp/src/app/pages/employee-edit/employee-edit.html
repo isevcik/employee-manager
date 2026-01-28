@@ -42,7 +42,8 @@
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="birthDate">Birth Date</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input birth date!">
-        <input nz-input formControlName="birthDate" id="birthDate" type="date" />
+        <nz-date-picker formControlName="birthDate" id="birthDate" nzPlaceHolder="Select birth date"
+          [style.width.%]="100"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
 
@@ -130,14 +131,16 @@
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="joinedDate">Joined Date</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input joined date!">
-        <input nz-input formControlName="joinedDate" id="joinedDate" type="date" />
+        <nz-date-picker formControlName="joinedDate" id="joinedDate" nzPlaceHolder="Select joined date"
+          [style.width.%]="100"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="exitedDate">Exited Date</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input nz-input formControlName="exitedDate" id="exitedDate" type="date" />
+        <nz-date-picker formControlName="exitedDate" id="exitedDate" nzPlaceHolder="Select exited date"
+          [style.width.%]="100"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
 
