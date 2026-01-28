@@ -8,6 +8,7 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
@@ -23,6 +24,7 @@ export class EmployeeEditComponent {
   private jobCategoriesService = inject(JobCategoriesService);
   private countriesService = inject(CountriesService);
   private fb = inject(FormBuilder);
+  private message = inject(NzMessageService);
 
   employeeId = input.required<string>();
   jobCategories$: Observable<JobCategoryDto[]> = this.jobCategoriesService.apiJobcategoriesGet();
@@ -100,10 +102,11 @@ export class EmployeeEditComponent {
 
       this.employeesService.apiEmployeesIdPut(Number(this.employeeId()), employeeUpdateDto).subscribe({
         next: () => {
-          console.log('Employee updated successfully');
+          this.message.success('Employee updated successfully');
         },
         error: (error) => {
           console.error('Error updating employee:', error);
+          this.message.error('Failed to update employee');
         }
       });
     } else {
