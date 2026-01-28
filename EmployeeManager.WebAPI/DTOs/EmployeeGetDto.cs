@@ -8,11 +8,13 @@ public class EmployeeGetDto
     public string LastName { get; set; } = default!;
     public DateTime BirthDate { get; set; }
     public string Gender { get; set; } = default!;
-    public int AddressId { get; set; }
+    public AddressDto? Address { get; set; }
     public int CountryId { get; set; }
     public string Email { get; set; } = default!;
     public string? PhoneNumber { get; set; }
     public DateTime JoinedDate { get; set; }
     public DateTime? ExitedDate { get; set; }
     public int? SuperiorId { get; set; }
+    public SalaryDto? Salary { get; set; }
+    public List<JobCategoryDto> JobCategories { get; set; } = new();
 }

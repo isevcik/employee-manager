@@ -24,14 +24,24 @@ public class EmployeesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<EmployeeGetDto>>> GetAll()
     {
-        var employees = await _context.Employees.ToListAsync();
+        var employees = await _context.Employees
+            .Include(e => e.Address)
+            .Include(e => e.EmployeeJobCategories)
+                .ThenInclude(ejc => ejc.JobCategory)
+            .Include(e => e.Salaries)
+            .ToListAsync();
         return _mapper.Map<List<EmployeeGetDto>>(employees);
     }
 
     [HttpGet("{id:int}")]
     public async Task<ActionResult<EmployeeGetDto>> GetById(int id)
     {
-        var employee = await _context.Employees.FindAsync(id);
+        var employee = await _context.Employees
+            .Include(e => e.Address)
+            .Include(e => e.EmployeeJobCategories)
+                .ThenInclude(ejc => ejc.JobCategory)
+            .Include(e => e.Salaries)
+            .FirstOrDefaultAsync(e => e.Id == id);
         if (employee == null) return NotFound();
         return _mapper.Map<EmployeeGetDto>(employee);
     }
