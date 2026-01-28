@@ -1,9 +1,10 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
 import { EmployeesService, EmployeeGetDto } from '../../api';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from "@angular/router";
+import { tap, finalize, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-employees',
@@ -15,5 +16,10 @@ import { RouterLink } from "@angular/router";
 export class EmployeesComponent {
   private employeesService = inject(EmployeesService);
 
-  employees$: Observable<EmployeeGetDto[]> = this.employeesService.apiEmployeesGet();
+  loading = signal(true);
+
+  employees$: Observable<EmployeeGetDto[]> = this.employeesService.apiEmployeesGet().pipe(
+    delay(1000),
+    finalize(() => this.loading.set(false))
+  );
 }

@@ -1,6 +1,6 @@
 <div class="employees-container">
   <h1>Employees</h1>
-  <nz-table #basicTable [nzData]="(employees$ | async) ?? []">
+  <nz-table #basicTable [nzData]="(employees$ | async) ?? []" [nzLoading]="loading()">
     <thead>
       <tr>
         <th>ID</th>
