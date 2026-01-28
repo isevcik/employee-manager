@@ -7,11 +7,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { SalaryDtoAmount } from './salaryDtoAmount';
 import { AddressDtoId } from './addressDtoId';
 
 
-export interface JobCategoryDto { 
+export interface SalaryDto { 
     id?: AddressDtoId;
-    title?: string;
+    amount?: SalaryDtoAmount;
+    from?: string;
+    to?: string | null;
 }
 

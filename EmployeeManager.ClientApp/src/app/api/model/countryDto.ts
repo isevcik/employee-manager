@@ -7,11 +7,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CountryDtoId } from './countryDtoId';
+import { AddressDtoId } from './addressDtoId';
 
 
 export interface CountryDto { 
-    id?: CountryDtoId;
+    id?: AddressDtoId;
     name?: string;
 }
 

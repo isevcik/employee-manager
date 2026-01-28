@@ -10,8 +10,11 @@
 import { AddressDtoId } from './addressDtoId';
 
 
-export interface JobCategoryDto { 
+export interface AddressDto { 
     id?: AddressDtoId;
-    title?: string;
+    street?: string;
+    zipCode?: string;
+    city?: string;
+    countryId?: AddressDtoId;
 }
 
