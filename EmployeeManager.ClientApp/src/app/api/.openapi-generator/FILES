@@ -12,7 +12,9 @@ git_push.sh
 index.ts
 model/addressDto.ts
 model/countryDto.ts
-model/employeeGetDto.ts
+model/employeeDetailDto.ts
+model/employeeListDto.ts
+model/employeeSummaryDto.ts
 model/employeeUpdateDto.ts
 model/jobCategoryDto.ts
 model/models.ts

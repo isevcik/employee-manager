@@ -17,7 +17,9 @@ import { Observable }                                        from 'rxjs';
 import { OpenApiHttpParams, QueryParamStyle } from '../query.params';
 
 // @ts-ignore
-import { EmployeeGetDto } from '../model/employeeGetDto';
+import { EmployeeDetailDto } from '../model/employeeDetailDto';
+// @ts-ignore
+import { EmployeeListDto } from '../model/employeeListDto';
 // @ts-ignore
 import { EmployeeUpdateDto } from '../model/employeeUpdateDto';
 
@@ -43,9 +45,9 @@ export class EmployeesService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiEmployeesGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<EmployeeGetDto>>;
-    public apiEmployeesGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EmployeeGetDto>>>;
-    public apiEmployeesGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EmployeeGetDto>>>;
+    public apiEmployeesGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<Array<EmployeeListDto>>;
+    public apiEmployeesGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<Array<EmployeeListDto>>>;
+    public apiEmployeesGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<Array<EmployeeListDto>>>;
     public apiEmployeesGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
@@ -77,7 +79,7 @@ export class EmployeesService extends BaseService {
 
         let localVarPath = `/api/employees`;
         const { basePath, withCredentials } = this.configuration;
-        return this.httpClient.request<Array<EmployeeGetDto>>('get', `${basePath}${localVarPath}`,
+        return this.httpClient.request<Array<EmployeeListDto>>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -151,9 +153,9 @@ export class EmployeesService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiEmployeesIdGet(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeGetDto>;
-    public apiEmployeesIdGet(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeGetDto>>;
-    public apiEmployeesIdGet(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeGetDto>>;
+    public apiEmployeesIdGet(id: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeDetailDto>;
+    public apiEmployeesIdGet(id: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeDetailDto>>;
+    public apiEmployeesIdGet(id: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeDetailDto>>;
     public apiEmployeesIdGet(id: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling apiEmployeesIdGet.');
@@ -188,7 +190,7 @@ export class EmployeesService extends BaseService {
 
         let localVarPath = `/api/employees/${this.configuration.encodeParam({name: "id", value: id, in: "path", style: "simple", explode: false, dataType: "number", dataFormat: "int32"})}`;
         const { basePath, withCredentials } = this.configuration;
-        return this.httpClient.request<EmployeeGetDto>('get', `${basePath}${localVarPath}`,
+        return this.httpClient.request<EmployeeDetailDto>('get', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -278,9 +280,9 @@ export class EmployeesService extends BaseService {
      * @param reportProgress flag to report request and response progress.
      * @param options additional options
      */
-    public apiEmployeesPost(employeeUpdateDto: EmployeeUpdateDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeGetDto>;
-    public apiEmployeesPost(employeeUpdateDto: EmployeeUpdateDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeGetDto>>;
-    public apiEmployeesPost(employeeUpdateDto: EmployeeUpdateDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeGetDto>>;
+    public apiEmployeesPost(employeeUpdateDto: EmployeeUpdateDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<EmployeeDetailDto>;
+    public apiEmployeesPost(employeeUpdateDto: EmployeeUpdateDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpResponse<EmployeeDetailDto>>;
+    public apiEmployeesPost(employeeUpdateDto: EmployeeUpdateDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<HttpEvent<EmployeeDetailDto>>;
     public apiEmployeesPost(employeeUpdateDto: EmployeeUpdateDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'text/plain' | 'application/json' | 'text/json', context?: HttpContext, transferCache?: boolean}): Observable<any> {
         if (employeeUpdateDto === null || employeeUpdateDto === undefined) {
             throw new Error('Required parameter employeeUpdateDto was null or undefined when calling apiEmployeesPost.');
@@ -326,7 +328,7 @@ export class EmployeesService extends BaseService {
 
         let localVarPath = `/api/employees`;
         const { basePath, withCredentials } = this.configuration;
-        return this.httpClient.request<EmployeeGetDto>('post', `${basePath}${localVarPath}`,
+        return this.httpClient.request<EmployeeDetailDto>('post', `${basePath}${localVarPath}`,
             {
                 context: localVarHttpContext,
                 body: employeeUpdateDto,
