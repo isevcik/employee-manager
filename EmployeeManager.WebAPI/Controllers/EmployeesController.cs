@@ -22,28 +22,29 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<EmployeeGetDto>>> GetAll()
+    public async Task<ActionResult<IEnumerable<EmployeeListDto>>> GetAll()
     {
         var employees = await _context.Employees
-            .Include(e => e.Address)
-            .Include(e => e.EmployeeJobCategories)
-                .ThenInclude(ejc => ejc.JobCategory)
-            .Include(e => e.Salaries)
             .ToListAsync();
-        return _mapper.Map<List<EmployeeGetDto>>(employees);
+        return _mapper.Map<List<EmployeeListDto>>(employees);
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<EmployeeGetDto>> GetById(int id)
+    public async Task<ActionResult<EmployeeDetailDto>> GetById(int id)
     {
         var employee = await _context.Employees
             .Include(e => e.Address)
             .Include(e => e.EmployeeJobCategories)
-                .ThenInclude(ejc => ejc.JobCategory)
+            .ThenInclude(ejc => ejc.JobCategory)
             .Include(e => e.Salaries)
+            .Include(e => e.Country)
+            .Include(e => e.Superior)
+            .Include(e => e.Subordinates)
             .FirstOrDefaultAsync(e => e.Id == id);
+
+        Console.WriteLine($"Employee: {System.Text.Json.JsonSerializer.Serialize(employee, new System.Text.Json.JsonSerializerOptions { ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles })}");
         if (employee == null) return NotFound();
-        return _mapper.Map<EmployeeGetDto>(employee);
+        return _mapper.Map<EmployeeDetailDto>(employee);
     }
 
     [HttpPut("{id:int}")]
@@ -65,7 +66,7 @@ public class EmployeesController : ControllerBase
         employee.LastName = dto.LastName;
         employee.BirthDate = dto.BirthDate;
         employee.Gender = Enum.Parse<Models.Gender>(dto.Gender);
-        // employee.CountryId = dto.CountryId;
+        employee.CountryId = dto.CountryId;
         employee.Email = dto.Email;
         employee.PhoneNumber = dto.PhoneNumber;
         employee.JoinedDate = dto.JoinedDate;
@@ -129,7 +130,7 @@ public class EmployeesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<EmployeeGetDto>> Create(EmployeeUpdateDto dto)
+    public async Task<ActionResult<EmployeeDetailDto>> Create(EmployeeUpdateDto dto)
     {
         var employee = new Models.Employee
         {
@@ -138,7 +139,7 @@ public class EmployeesController : ControllerBase
             LastName = dto.LastName,
             BirthDate = dto.BirthDate,
             Gender = Enum.Parse<Models.Gender>(dto.Gender),
-            // CountryId = dto.CountryId,
+            CountryId = dto.CountryId,
             Email = dto.Email,
             PhoneNumber = dto.PhoneNumber,
             JoinedDate = dto.JoinedDate,
@@ -179,7 +180,7 @@ public class EmployeesController : ControllerBase
             .Include(e => e.Salaries)
             .FirstOrDefaultAsync(e => e.Id == employee.Id);
 
-        return CreatedAtAction(nameof(GetById), new { id = employee.Id }, _mapper.Map<EmployeeGetDto>(createdEmployee));
+        return CreatedAtAction(nameof(GetById), new { id = employee.Id }, _mapper.Map<EmployeeDetailDto>(createdEmployee));
     }
 
     [HttpDelete("{id:int}")]

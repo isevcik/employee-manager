@@ -13,10 +13,12 @@ public class MappingProfile : Profile
         CreateMap<JobCategory, JobCategoryDto>();
         CreateMap<Address, AddressDto>();
         CreateMap<Salary, SalaryDto>();
-        CreateMap<Employee, EmployeeGetDto>()
+        CreateMap<Employee, EmployeeSummaryDto>();
+        CreateMap<Employee, EmployeeDetailDto>()
             .ForMember(dest => dest.JobCategories,
                 opt => opt.MapFrom(src => src.EmployeeJobCategories.Select(ejc => ejc.JobCategory)))
             .ForMember(dest => dest.Salary,
                 opt => opt.MapFrom(src => src.Salaries.FirstOrDefault(s => s.To == null)));
+        CreateMap<Employee, EmployeeListDto>();
     }
 }
