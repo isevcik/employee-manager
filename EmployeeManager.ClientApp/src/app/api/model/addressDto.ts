@@ -7,14 +7,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { AddressDtoId } from './addressDtoId';
 
 
 export interface AddressDto { 
-    id?: AddressDtoId;
+    id?: any | null;
     street?: string;
     zipCode?: string;
     city?: string;
-    countryId?: AddressDtoId;
+    countryId?: any | null;
 }
 

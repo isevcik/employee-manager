@@ -8,26 +8,24 @@
  * Do not edit the class manually.
  */
 import { SalaryDto } from './salaryDto';
-import { AddressDtoId } from './addressDtoId';
 import { AddressDto } from './addressDto';
-import { EmployeeGetDtoSuperiorId } from './employeeGetDtoSuperiorId';
 import { JobCategoryDto } from './jobCategoryDto';
 
 
 export interface EmployeeGetDto { 
-    id?: AddressDtoId;
+    id?: any | null;
     firstName?: string;
     middleName?: string | null;
     lastName?: string;
     birthDate?: string;
     gender?: string;
     address?: AddressDto | null;
-    countryId?: AddressDtoId;
+    countryId?: any | null;
     email?: string;
     phoneNumber?: string | null;
     joinedDate?: string;
     exitedDate?: string | null;
-    superiorId?: EmployeeGetDtoSuperiorId | null;
+    superiorId?: any | null;
     salary?: SalaryDto | null;
     jobCategories?: Array<JobCategoryDto>;
 }

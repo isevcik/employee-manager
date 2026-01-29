@@ -11,12 +11,9 @@ encoder.ts
 git_push.sh
 index.ts
 model/addressDto.ts
-model/addressDtoId.ts
 model/countryDto.ts
 model/employeeGetDto.ts
-model/employeeGetDtoSuperiorId.ts
 model/employeeUpdateDto.ts
-model/employeeUpdateDtoSalary.ts
 model/jobCategoryDto.ts
 model/models.ts
 model/salaryDto.ts

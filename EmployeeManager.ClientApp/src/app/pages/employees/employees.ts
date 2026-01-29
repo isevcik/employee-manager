@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
-import { EmployeesService, EmployeeGetDto, AddressDtoId } from '../../api';
+import { EmployeesService, EmployeeGetDto } from '../../api';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { Observable, Subject } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
@@ -28,7 +28,7 @@ export class EmployeesComponent {
     ))
   );
 
-  deleteEmployee(id: number | AddressDtoId): void {
+  deleteEmployee(id: number): void {
     this.loading.set(true);
     this.employeesService.apiEmployeesIdDelete(id as number).subscribe({
       next: () => {

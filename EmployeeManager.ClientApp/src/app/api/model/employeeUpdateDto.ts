@@ -7,28 +7,25 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { EmployeeUpdateDtoSalary } from './employeeUpdateDtoSalary';
-import { AddressDtoId } from './addressDtoId';
 import { AddressDto } from './addressDto';
-import { EmployeeGetDtoSuperiorId } from './employeeGetDtoSuperiorId';
 import { JobCategoryDto } from './jobCategoryDto';
 
 
 export interface EmployeeUpdateDto { 
-    id?: AddressDtoId;
+    id?: any | null;
     firstName?: string;
     middleName?: string | null;
     lastName?: string;
     birthDate?: string;
     gender?: string;
     address?: AddressDto | null;
-    countryId?: AddressDtoId;
+    countryId?: any | null;
     email?: string;
     phoneNumber?: string | null;
     joinedDate?: string;
     exitedDate?: string | null;
-    superiorId?: EmployeeGetDtoSuperiorId | null;
-    salary?: EmployeeUpdateDtoSalary;
+    superiorId?: any | null;
+    salary?: any | null;
     jobCategories?: Array<JobCategoryDto>;
 }
 
