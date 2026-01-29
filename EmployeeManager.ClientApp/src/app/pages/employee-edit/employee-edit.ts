@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject, effect, input } from '@angular/core';
-import { EmployeesService, EmployeeGetDto, JobCategoriesService, JobCategoryDto, CountriesService, CountryDto } from '../../api';
+import { EmployeesService, EmployeeDetailDto, JobCategoriesService, JobCategoryDto, CountriesService, CountryDto } from '../../api';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
@@ -29,7 +29,7 @@ export class EmployeeEditComponent {
   employeeId = input.required<string>();
   jobCategories$: Observable<JobCategoryDto[]> = this.jobCategoriesService.apiJobcategoriesGet();
   countries$: Observable<CountryDto[]> = this.countriesService.apiCountriesGet();
-  employees$: Observable<EmployeeGetDto[]> = this.employeesService.apiEmployeesGet();
+  employees$: Observable<EmployeeDetailDto[]> = this.employeesService.apiEmployeesGet();
 
   validateForm = this.fb.group({
     firstName: ['', [Validators.required]],
@@ -66,8 +66,8 @@ export class EmployeeEditComponent {
           gender: employee.gender || '',
           jobCategories: employee.jobCategories?.map(jc => jc.id).filter((id): id is number => id !== undefined) || [],
           salary: employee.salary?.amount as number | null || null,
-          superiorId: employee.superiorId as number | null || null,
-          countryId: employee.address?.countryId as number | null || null,
+          superiorId: employee.superior?.id as number | null || null,
+          countryId: employee.country?.id as number | null || null,
           address: {
             street: employee.address?.street || '',
             zipCode: employee.address?.zipCode || '',

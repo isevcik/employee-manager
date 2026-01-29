@@ -26,8 +26,26 @@
       <span>-</span>
       }
     </nz-descriptions-item>
-    <nz-descriptions-item nzTitle="Salary">{{ emp.salary?.amount || '-' }}</nz-descriptions-item>
-    <!-- <nz-descriptions-item nzTitle="Superior">{{ getSuperiorName(emp.superiorId) }}</nz-descriptions-item> -->
+    <nz-descriptions-item nzTitle="Country">{{ emp.country?.name || '-' }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Current Salary">{{ emp.salary?.amount || '-' }}</nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Superior">
+      @if (emp.superior) {
+      {{ emp.superior.firstName }} {{ emp.superior.middleName ? emp.superior.middleName + ' ' : '' }}{{
+      emp.superior.lastName }}
+      } @else {
+      <span>-</span>
+      }
+    </nz-descriptions-item>
+    <nz-descriptions-item nzTitle="Subordinates">
+      @if (emp.subordinates && emp.subordinates.length > 0) {
+      @for (subordinate of emp.subordinates; track subordinate.id) {
+      <nz-tag [nzColor]="'green'">{{ subordinate.firstName }} {{ subordinate.middleName ? subordinate.middleName + ' ' :
+        '' }}{{ subordinate.lastName }}</nz-tag>
+      }
+      } @else {
+      <span>-</span>
+      }
+    </nz-descriptions-item>
   </nz-descriptions>
 
   <nz-divider nzText="Address" nzOrientation="left"></nz-divider>
@@ -36,7 +54,13 @@
     <nz-descriptions-item nzTitle="Street">{{ emp.address?.street || '-' }}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Zip Code">{{ emp.address?.zipCode || '-' }}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="City">{{ emp.address?.city || '-' }}</nz-descriptions-item>
-    <!-- <nz-descriptions-item nzTitle="Country">{{ getCountryName(emp.address?.countryId) }}</nz-descriptions-item> -->
+    <nz-descriptions-item nzTitle="Country">
+      @if (emp.country) {
+      {{ emp.country.name }}
+      } @else {
+      <span>-</span>
+      }
+    </nz-descriptions-item>
   </nz-descriptions>
 
   <nz-divider nzText="Employment Dates" nzOrientation="left"></nz-divider>
@@ -46,6 +70,28 @@
       }}</nz-descriptions-item>
     <nz-descriptions-item nzTitle="Exited Date">{{ (emp.exitedDate | date:'mediumDate') || '-'
       }}</nz-descriptions-item>
+  </nz-descriptions>
+
+  <nz-divider nzText="Salary History" nzOrientation="left"></nz-divider>
+
+  <nz-descriptions nzBordered [nzColumn]="1">
+    <nz-descriptions-item nzTitle="Salaries">
+      @if (emp.salaries && emp.salaries.length > 0) {
+      <div class="salary-history">
+        @for (salary of emp.salaries; track salary.id) {
+        <div class="salary-item">
+          <strong>{{ salary.amount || '-' }}</strong>
+          <span class="salary-period">
+            ({{ (salary.from | date:'shortDate') || '-' }} - {{ salary.to ? (salary.to | date:'shortDate') : 'Present'
+            }})
+          </span>
+        </div>
+        }
+      </div>
+      } @else {
+      <span>-</span>
+      }
+    </nz-descriptions-item>
   </nz-descriptions>
   }
 </div>

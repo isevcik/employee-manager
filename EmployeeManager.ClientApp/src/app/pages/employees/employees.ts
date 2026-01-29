@@ -1,8 +1,8 @@
 import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
-import { EmployeesService, EmployeeGetDto } from '../../api';
+import { EmployeesService, EmployeeListDto } from '../../api';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { Observable, Subject } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { RouterLink } from "@angular/router";
 import { finalize, delay, switchMap, startWith } from 'rxjs/operators';
 import { NzDividerComponent } from 'ng-zorro-antd/divider';
@@ -13,7 +13,7 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
   templateUrl: './employees.html',
   styleUrl: './employees.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, NzTableModule, RouterLink, NzDividerComponent, NzPopconfirmModule],
+  imports: [AsyncPipe, DatePipe, NzTableModule, RouterLink, NzDividerComponent, NzPopconfirmModule],
 })
 export class EmployeesComponent {
   private employeesService = inject(EmployeesService);
@@ -21,7 +21,7 @@ export class EmployeesComponent {
   loading = signal(true);
   private refreshTrigger$ = new Subject<void>();
 
-  employees$: Observable<EmployeeGetDto[]> = this.refreshTrigger$.pipe(
+  employees$: Observable<EmployeeListDto[]> = this.refreshTrigger$.pipe(
     startWith(undefined),
     switchMap(() => this.employeesService.apiEmployeesGet().pipe(
       finalize(() => this.loading.set(false))
