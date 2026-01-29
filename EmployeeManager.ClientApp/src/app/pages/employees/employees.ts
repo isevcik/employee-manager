@@ -1,26 +1,43 @@
 import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
-import { EmployeesService, EmployeeGetDto } from '../../api';
+import { EmployeesService, EmployeeGetDto, AddressDtoId } from '../../api';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from "@angular/router";
-import { tap, finalize, delay } from 'rxjs/operators';
+import { finalize, delay, switchMap, startWith } from 'rxjs/operators';
 import { NzDividerComponent } from 'ng-zorro-antd/divider';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.html',
   styleUrl: './employees.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [AsyncPipe, NzTableModule, RouterLink, NzDividerComponent],
+  imports: [AsyncPipe, NzTableModule, RouterLink, NzDividerComponent, NzPopconfirmModule],
 })
 export class EmployeesComponent {
   private employeesService = inject(EmployeesService);
 
   loading = signal(true);
+  private refreshTrigger$ = new Subject<void>();
 
-  employees$: Observable<EmployeeGetDto[]> = this.employeesService.apiEmployeesGet().pipe(
-    delay(1000),
-    finalize(() => this.loading.set(false))
+  employees$: Observable<EmployeeGetDto[]> = this.refreshTrigger$.pipe(
+    startWith(undefined),
+    switchMap(() => this.employeesService.apiEmployeesGet().pipe(
+      finalize(() => this.loading.set(false))
+    ))
   );
+
+  deleteEmployee(id: number | AddressDtoId): void {
+    this.loading.set(true);
+    this.employeesService.apiEmployeesIdDelete(id as number).subscribe({
+      next: () => {
+        this.refreshTrigger$.next();
+      },
+      error: (error) => {
+        console.error('Error deleting employee:', error);
+        this.loading.set(false);
+      }
+    });
+  }
 }

@@ -73,6 +73,17 @@
     </nz-form-item>
 
     <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="countryId">Country</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <nz-select formControlName="countryId" id="countryId" nzPlaceHolder="Select a country" nzShowSearch>
+          @for (country of (countries$ | async); track country.id) {
+          <nz-option [nzLabel]="country.name || ''" [nzValue]="country.id"></nz-option>
+          }
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="salary">Salary</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
         <input nz-input formControlName="salary" id="salary" type="number" placeholder="Enter salary amount" />
