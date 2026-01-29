@@ -2,6 +2,7 @@ using EmployeeManager.Data;
 using EmployeeManager.Mappings;
 
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+    options.OpenApiVersion = OpenApiSpecVersion.OpenApi3_0
+);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<EmployeeSeederService>();
