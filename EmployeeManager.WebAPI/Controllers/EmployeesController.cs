@@ -181,4 +181,16 @@ public class EmployeesController : ControllerBase
 
         return CreatedAtAction(nameof(GetById), new { id = employee.Id }, _mapper.Map<EmployeeGetDto>(createdEmployee));
     }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var employee = await _context.Employees.FindAsync(id);
+        if (employee == null) return NotFound();
+
+        _context.Employees.Remove(employee);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
 }
